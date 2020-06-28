@@ -47,9 +47,6 @@ public class App {
                             "-----------------------------------\n" +
                             "Total："+ lessMoney + " yuan\n" +
                             "===================================";
-//                promotionStr +="Promotion used:\n"+ "Half price for certain dishes (" + proItem + ")，saving " + halfPriceLess + " yuan\\n" +"-----------------------------------\n" +
-//                        "Total：" + (totalPrice - halfPriceLess) + " yuan\n" +
-//                        "===================================";
                 return orderDetails + promotionStr;
             }else{
                 promotionStr +="Promotion used:\n" +"满30减6 yuan，saving 6 yuan\n" +

@@ -38,15 +38,18 @@ public class App {
         String promotionStr = "";
         List<SalesPromotion> salesPromotions = this.salesPromotionRepository.findAll();   //salesPromotionList
         String proItem = getHalfItemNames(salesPromotions,inputItemsMap,inputs);
-//        int proItemLen = proItemStr.length() - 1;
-//        String proItem = proItemStr.substring(0,proItemLen);
         int halfPriceLess = judgeHalfPrice(salesPromotions,inputItemsMap,inputs);
-//        return  orderDetails + halfPriceLess;
+        int lessMoney = (totalPrice - halfPriceLess);
         if(totalPrice >= 30){
             if(halfPriceLess > 6){
-                promotionStr +="Promotion used:\n"+ "Half price for certain dishes (" + proItem + ")，saving " + halfPriceLess + " yuan\\n" +"-----------------------------------\n" +
-                        "Total：" + (totalPrice - halfPriceLess) + " yuan\n" +
-                        "===================================";
+                    promotionStr= "Promotion used:\n" +
+                            "Half price for certain dishes ("+proItem+")，saving "+halfPriceLess+" yuan\n" +
+                            "-----------------------------------\n" +
+                            "Total："+ lessMoney + " yuan\n" +
+                            "===================================";
+//                promotionStr +="Promotion used:\n"+ "Half price for certain dishes (" + proItem + ")，saving " + halfPriceLess + " yuan\\n" +"-----------------------------------\n" +
+//                        "Total：" + (totalPrice - halfPriceLess) + " yuan\n" +
+//                        "===================================";
                 return orderDetails + promotionStr;
             }else{
                 promotionStr +="Promotion used:\n" +"满30减6 yuan，saving 6 yuan\n" +
